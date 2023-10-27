@@ -20,6 +20,9 @@ public class PlayerStateContext : MonoBehaviour
 
     public void Transition(IPlayerState state)
     {
+        if (CurrentState == state)
+            return;
+        
         CurrentState = state;
         CurrentState.Handle(_playerController);
     }
