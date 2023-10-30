@@ -8,13 +8,19 @@ public class Player : Character
 {
     protected override void Start()
     {
-        _animator = GetComponent<Animator>();
-        _walkState = gameObject.AddComponent<MyPlayerMoveState>();
+        Animator = GetComponent<Animator>();
+        _moveState = gameObject.AddComponent<MyPlayerMoveState>();
         base.Start();
     }
 
     protected override void Update()
     {
         base.Update();
+        SetMoveSpeedValue();
+    }
+
+    void SetMoveSpeedValue()
+    {
+        moveSpeedValue = GameManager.Instance.controlManager.currentController.GetControllerValue().value;
     }
 }

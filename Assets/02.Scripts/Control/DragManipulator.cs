@@ -12,7 +12,7 @@ namespace _02.Scripts.Control
     {
         private float _boundRadius;
         private VisualElement _lever;
-        private ControllerValue _controllerValue;
+        private MoveValue _moveValue;
 
         public DragManipulator(VisualElement target)
         {
@@ -76,14 +76,14 @@ namespace _02.Scripts.Control
             target.ReleasePointer(evt.pointerId);
         }
 
-        internal ControllerValue GetJoystickValue()
+        internal MoveValue GetJoystickValue()
         {
-            if (_lever == null) return new ControllerValue();
+            if (_lever == null) return new MoveValue();
 
-            _controllerValue.value = _lever.transform.position.magnitude / _boundRadius;
+            _moveValue.value = _lever.transform.position.magnitude / _boundRadius;
             var pos = _lever.transform.position.normalized;
-            _controllerValue.vector = new Vector3(pos.x, 0, -pos.y);
-            return _controllerValue;
+            _moveValue.vector = new Vector3(pos.x, 0, -pos.y);
+            return _moveValue;
         }
     }
 }

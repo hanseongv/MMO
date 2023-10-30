@@ -33,7 +33,7 @@ public class JoystickControl : MonoBehaviour, IController
         _manipulator.Init(ImageLever);
     }
 
-    public ControllerValue GetControllerValue()
+    public MoveValue GetControllerValue()
     {
         return _manipulator.GetJoystickValue();
     }

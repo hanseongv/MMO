@@ -8,21 +8,22 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public float moveSpeed = 1.0f;
-    public float CurrentSpeed { get; set; }
-    private ICharacterState _idleState;
-    internal ICharacterState _walkState;
-    private ICharacterState _runState;
+    internal float moveSpeedValue = 0.0f;
+    protected internal float CurrentSpeed { get; set; }
 
-    private CharacterStateContext _characterStateContext;
-    internal Animator _animator;
+    private ICharacterState _idleState;
+    protected ICharacterState _moveState;
+
+    private StateMachine _stateMachine;
+    internal Animator Animator;
 
 
     protected virtual void Start()
     {
-        _characterStateContext = new CharacterStateContext(this);
+        _stateMachine = new StateMachine(this);
         _idleState = gameObject.AddComponent<CharacterIdleState>();
 
-        _characterStateContext.Transition(_idleState);
+        _stateMachine.Transition(_idleState);
     }
 
     protected virtual void Update()
@@ -32,14 +33,13 @@ public class Character : MonoBehaviour
 
     void Move()
     {
-        var controllerValue = GameManager.Instance.controlManager.currentController.GetControllerValue();
-        if (Mathf.Approximately(controllerValue.value, 0.0f))
+        if (Mathf.Approximately(CurrentSpeed, 0.0f))
         {
-            _characterStateContext.Transition(_idleState);
+            _stateMachine.Transition(_idleState);
         }
         else
         {
-            _characterStateContext.Transition(_walkState);
+            _stateMachine.Transition(_moveState);
         }
     }
 }

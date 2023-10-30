@@ -56,7 +56,7 @@
      <Compile Include="Assets/02.Scripts/Interface/IController.cs" />
      <Compile Include="Assets/02.Scripts/Manager/CameraManager.cs" />
      <Compile Include="Assets/02.Scripts/Control/JoystickControl.cs" />
-     <Compile Include="Assets/02.Scripts/Player/CharacterStateContext.cs" />
+     <Compile Include="Assets/02.Scripts/Player/StateMachine.cs" />
      <Compile Include="Assets/02.Scripts/VirtualJoystick.cs" />
      <Compile Include="Assets/02.Scripts/Player/PlayerState.cs" />
      <Folder Include="Assets" />

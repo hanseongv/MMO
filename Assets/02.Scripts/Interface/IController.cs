@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using _02.Scripts.Control;
 using UnityEngine;
 
-public struct ControllerValue
+public struct MoveValue
 {
     public Vector3 vector;
     public float value;
@@ -11,5 +11,5 @@ public struct ControllerValue
 
 public interface IController
 {
-    public ControllerValue GetControllerValue();
+    public MoveValue GetControllerValue();
 }
