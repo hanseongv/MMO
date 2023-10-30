@@ -58,6 +58,7 @@
      <Compile Include="Assets/02.Scripts/Interface/IController.cs" />
      <Compile Include="Assets/02.Scripts/Manager/CameraManager.cs" />
      <Compile Include="Assets/02.Scripts/Control/JoystickControl.cs" />
+     <Compile Include="Assets/02.Scripts/Control/DragUI.cs" />
      <Compile Include="Assets/02.Scripts/State/State.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/08_UI/Uss/Button.uss" />
@@ -69,6 +70,7 @@
      <Folder Include="Assets/08_UI/UI Toolkit/UnityThemes" />
      <Folder Include="Assets/05.Models" />
      <Folder Include="Assets/02.Scripts/Player" />
+     <None Include="Assets/08_UI/Uxml/CameraRotationUI.uxml" />
      <Folder Include="Assets/02.Scripts/State" />
      <Folder Include="Assets/08_UI/Uss" />
      <Folder Include="Assets/02.Scripts/Commons" />

@@ -21,14 +21,14 @@ public class JoystickControl : MonoBehaviour, IController
         VisualElement root = GetComponent<UIDocument>().rootVisualElement;
 
         // 값을 불러온 뒤 콜백
-        root.RegisterCallback<GeometryChangedEvent>(StartInit);
+        root.RegisterCallback<GeometryChangedEvent>(RegisterCallback);
 
         // 조이스틱에 드래그 기능 넣기
         _manipulator =
             new(root.Q<VisualElement>(ImageJoystick));
     }
 
-    private void StartInit(GeometryChangedEvent evt)
+    private void RegisterCallback(GeometryChangedEvent evt)
     {
         _manipulator.Init(ImageLever);
     }

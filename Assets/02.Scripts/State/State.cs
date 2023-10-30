@@ -35,11 +35,14 @@ public class MyPlayerMoveState : BaseState
 
     public override void OnStateUpdate()
     {
+        var moveSpeedValue = GameManager.Instance.controlManager.currentController.GetControllerValue().value;
+
         // 카메라가 바라보는 방향
         var cameraDirection = GameManager.Instance.cameraManager.GetCameraDirection();
 
-        var moveSpeedValue = GameManager.Instance.controlManager.currentController.GetControllerValue().value;
-
+        if (cameraDirection == Vector3.zero)
+            return;
+        
         float y = Quaternion.LookRotation(cameraDirection).eulerAngles.y;
 
         // 회전
