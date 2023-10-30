@@ -16,6 +16,8 @@ public class Player : Character
 
     protected override void Update()
     {
+        base.Update();
+
         if (0.0f < GameManager.Instance.controlManager.currentController.GetControllerValue().value)
         {
             ChangeState(State.Move);
@@ -25,14 +27,6 @@ public class Player : Character
             ChangeState(State.Idle);
         }
 
-        base.Update();
-
-
-        // SetMoveSpeedValue();
     }
 
-    // void SetMoveSpeedValue()
-    // {
-    //     moveSpeedValue = GameManager.Instance.controlManager.currentController.GetControllerValue().value;
-    // }
 }

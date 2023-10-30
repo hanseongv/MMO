@@ -18,8 +18,6 @@ public class StateMachine
         if (currentState != null)
             currentState.OnStateExit();
 
-        // state._character = _character;
-
         currentState = state;
         currentState.OnStateEnter();
     }
