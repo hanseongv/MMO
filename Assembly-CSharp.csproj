@@ -45,55 +45,47 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2022.3.10f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs" />
-     <Compile Include="Assets/Scripts/Control/DragManipulator.cs" />
-     <Compile Include="Assets/Scripts/PlayerStateContext.cs" />
-     <Compile Include="Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs" />
-     <Compile Include="Assets/Scripts/State/PlayerState.cs" />
-     <Compile Include="Assets/Joystick Pack/Examples/JoystickSetterExample.cs" />
-     <Compile Include="Assets/Scripts/Player.cs" />
-     <Compile Include="Assets/Scripts/Control/JoystickControl.cs" />
-     <Compile Include="Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs" />
-     <Compile Include="Assets/Joystick Pack/Scripts/Joysticks/DynamicJoystick.cs" />
-     <Compile Include="Assets/Scripts/Interface/IPlayerState.cs" />
-     <Compile Include="Assets/Scripts/PlayerController.cs" />
-     <Compile Include="Assets/Joystick Pack/Scripts/Base/Joystick.cs" />
-     <Compile Include="Assets/Scripts/VirtualJoystick.cs" />
-     <Compile Include="Assets/Joystick Pack/Examples/JoystickPlayerExample.cs" />
+     <Compile Include="Assets/02.Scripts/Interface/IManager.cs" />
+     <Compile Include="Assets/02.Scripts/Manager/GameManager.cs" />
+     <Compile Include="Assets/02.Scripts/Player/Player.cs" />
+     <Compile Include="Assets/02.Scripts/Control/DragManipulator.cs" />
+     <Compile Include="Assets/02.Scripts/Interface/ICharacterState.cs" />
+     <Compile Include="Assets/02.Scripts/Player/Character.cs" />
+     <Compile Include="Assets/02.Scripts/Commons/Singleton.cs" />
+     <Compile Include="Assets/02.Scripts/Manager/ControlManager.cs" />
+     <Compile Include="Assets/02.Scripts/Interface/IController.cs" />
+     <Compile Include="Assets/02.Scripts/Manager/CameraManager.cs" />
+     <Compile Include="Assets/02.Scripts/Control/JoystickControl.cs" />
+     <Compile Include="Assets/02.Scripts/Player/CharacterStateContext.cs" />
+     <Compile Include="Assets/02.Scripts/VirtualJoystick.cs" />
+     <Compile Include="Assets/02.Scripts/Player/PlayerState.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/08_UI/Uss/Button.uss" />
-     <Folder Include="Assets/Joystick Pack/Scripts/Joysticks" />
-     <Folder Include="Assets/Scripts" />
+     <Folder Include="Assets/02.Scripts" />
      <Folder Include="Assets/Settings" />
-     <Folder Include="Assets/Joystick Pack/Sprites/Vertical Backgrounds" />
-     <Folder Include="Assets/UI Toolkit" />
-     <Folder Include="Assets/Prefabs" />
-     <Folder Include="Assets/Models/Characters" />
-     <Folder Include="Assets/UI Toolkit/UnityThemes" />
-     <Folder Include="Assets/Joystick Pack/Sprites" />
-     <Folder Include="Assets/Joystick Pack/Scripts/Base" />
-     <Folder Include="Assets/Models" />
-     <Folder Include="Assets/Joystick Pack/Prefabs" />
+     <Folder Include="Assets/08_UI/UI Toolkit" />
+     <Folder Include="Assets/03.Prefabs" />
+     <Folder Include="Assets/05.Models/Characters" />
+     <Folder Include="Assets/08_UI/UI Toolkit/UnityThemes" />
+     <Folder Include="Assets/05.Models" />
+     <Folder Include="Assets/02.Scripts/Player" />
      <Folder Include="Assets/08_UI/Uss" />
-     <Folder Include="Assets/Joystick Pack/Scripts" />
-     <Folder Include="Assets/Art/Animation/Animators" />
-     <Folder Include="Assets/Joystick Pack" />
-     <Folder Include="Assets/Scripts/State" />
-     <Folder Include="Assets/Scripts/Control" />
-     <Folder Include="Assets/Art/Animation" />
-     <Folder Include="Assets/Joystick Pack/Examples" />
-     <Folder Include="Assets/Images" />
-     <Folder Include="Assets/Art/Animation/Animation" />
-     <Folder Include="Assets/Art" />
+     <Folder Include="Assets/02.Scripts/Commons" />
+     <Folder Include="Assets/07.Animations/Animators" />
+     <Folder Include="Assets/02.Scripts/Control" />
+     <Folder Include="Assets/07.Animations" />
+     <Folder Include="Assets/04.Images/Joystick" />
+     <Folder Include="Assets/04.Images" />
+     <Folder Include="Assets/07.Animations/Animation" />
+     <Folder Include="Assets/02.Scripts/Camera" />
+     <Folder Include="Assets/06.Sounds" />
+     <Folder Include="Assets/02.Scripts/Manager" />
      <Folder Include="Assets/08_UI/Uxml" />
-     <None Include="Assets/08_UI/Uxml/MainMenu.uxml" />
-     <Folder Include="Assets/Joystick Pack/Sprites/All Axis Backgrounds" />
-     <Folder Include="Assets/Scenes" />
-     <Folder Include="Assets/Scripts/Interface" />
-     <Folder Include="Assets/Joystick Pack/Sprites/Horizontal Backgrounds" />
+     <None Include="Assets/08_UI/Uxml/JoystickUI.uxml" />
+     <Folder Include="Assets/01.Scenes" />
+     <Folder Include="Assets/02.Scripts/Interface" />
      <Folder Include="Assets/08_UI/PanelSettings" />
-     <Folder Include="Assets/Joystick Pack/Sprites/Handles" />
-     <Folder Include="Assets/Prefabs/Character" />
+     <Folder Include="Assets/03.Prefabs/Character" />
      <Folder Include="Assets/08_UI" />
      <Reference Include="UnityEngine">
      <HintPath>/Applications/Unity/Hub/Editor/2022.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -345,7 +337,7 @@
      <HintPath>/Applications/Unity/Hub/Editor/2022.3.10f1/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/PackageCache/com.unity.visualscripting@1.9.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/PackageCache/com.unity.visualscripting@1.9.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.iOS.Extensions.Xcode">
      <HintPath>/Applications/Unity/Hub/Editor/2022.3.10f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -729,124 +721,124 @@
      <HintPath>/Applications/Unity/Hub/Editor/2022.3.10f1/Unity.app/Contents/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Sysroot.Linux_x86_64">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Runtime">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Burst">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.AI.Navigation">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.AI.Navigation.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.AI.Navigation.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Shared.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.ShaderGraph.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Core.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Flow.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.Flow.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualScripting.Flow.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Toolchain.Macos-arm64-Linux-x86_64">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Toolchain.Macos-arm64-Linux-x86_64.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Toolchain.Macos-arm64-Linux-x86_64.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
      </Reference>
      <Reference Include="Unity.SysrootPackage.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.AI.Navigation.Updater">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.AI.Navigation.Updater.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.AI.Navigation.Updater.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualScripting.State.Editor.dll</HintPath>
      </Reference>
      <Reference Include="PPv2URPConverters">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/PPv2URPConverters.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Mathematics">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Searcher.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
      </Reference>
      <Reference Include="Unity.AI.Navigation.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualScripting.State">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
      </Reference>
      <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.RenderPipelines.Universal.Editor">
-     <HintPath>/Users/jeonghanseong/UnityProject/MMO/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+     <HintPath>/Users/jeonghanseong/UnityProject/MMO/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
