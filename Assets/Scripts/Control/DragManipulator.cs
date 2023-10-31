@@ -6,24 +6,15 @@ using UnityEngine.UIElements;
 
 namespace _02.Scripts.Control
 {
-
 //https://github.com/Unity-Technologies/ui-toolkit-manual-code-examples/tree/master/create-a-drag-and-drop-window-inside-a-custom-editor-window
     public class DragManipulator : PointerManipulator
     {
-        private float _boundRadius;
-        private VisualElement _lever;
-        private MoveValue _moveValue;
-
         public DragManipulator(VisualElement target)
         {
             this.target = target;
         }
 
-        internal void Init(string imageLever)
-        {
-            _lever = target.Q<VisualElement>(imageLever);
-            _boundRadius = target.localBound.width / 2.0f;
-        }
+        internal bool IsDrag;
 
         protected override void RegisterCallbacksOnTarget()
         {
@@ -39,9 +30,19 @@ namespace _02.Scripts.Control
             target.UnregisterCallback<PointerUpEvent>(PointerUpHandler);
         }
 
+        private float _boundRadius;
+        private VisualElement _lever;
+        private MoveValue _moveValue;
+
         private Vector2 _targetStartPosition;
         private Vector3 _pointerStartPosition;
-        private bool _isDrag;
+
+        internal void Init(string imageLever)
+        {
+            _lever = target.Q<VisualElement>(imageLever);
+            _boundRadius = target.localBound.width / 2.0f;
+        }
+
 
         private void PointerDownHandler(PointerDownEvent evt)
         {
@@ -53,13 +54,13 @@ namespace _02.Scripts.Control
             target.CapturePointer(evt.pointerId);
 
 
-            _isDrag = true;
+            IsDrag = true;
         }
 
 
         private void PointerMoveHandler(PointerMoveEvent evt)
         {
-            if (!_isDrag) return;
+            if (!IsDrag) return;
 
             var pointerDelta = evt.position - _pointerStartPosition;
             _lever.transform.position = Vector2.ClampMagnitude(
@@ -70,8 +71,8 @@ namespace _02.Scripts.Control
 
         private void PointerUpHandler(PointerUpEvent evt)
         {
-            if (!_isDrag) return;
-            _isDrag = false;
+            if (!IsDrag) return;
+            IsDrag = false;
             _lever.transform.position = Vector2.zero;
             target.ReleasePointer(evt.pointerId);
         }

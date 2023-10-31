@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Manager;
 using State;
 using State.Interface;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] private IManager[] _managers;
 
+// CompleteInitList
     private void Start()
     {
         Init();
@@ -22,9 +24,9 @@ public class GameManager : Singleton<GameManager>
     void Init()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
-
         _managers = GetComponentsInChildren<IManager>();
         Array.ForEach(_managers, manager => manager.Init());
+        player.Init();
     }
 
     // //test

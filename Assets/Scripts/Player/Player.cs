@@ -7,18 +7,25 @@ using UnityEngine;
 
 public class Player : Character
 {
-    protected override void Start()
+    internal override void Init()
     {
         MoveState = new MyPlayerMoveState(this);
         Animator = GetComponent<Animator>();
-        base.Start();
+        base.Init();
     }
+    // protected override void Start()
+    // {
+    //     MoveState = new MyPlayerMoveState(this);
+    //     Animator = GetComponent<Animator>();
+    //     base.Start();
+    // }
 
     protected override void Update()
     {
         base.Update();
 
-        if (0.0f < GameManager.Instance.controlManager.currentController.GetControllerValue().value)
+        var controllerValue = GameManager.Instance.controlManager.CurrentController.GetControllerValue().value;
+        if (0.0f < controllerValue)
         {
             ChangeState(State.Move);
         }
@@ -26,7 +33,5 @@ public class Player : Character
         {
             ChangeState(State.Idle);
         }
-
     }
-
 }

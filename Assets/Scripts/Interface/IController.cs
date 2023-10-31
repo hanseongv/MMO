@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _02.Scripts.Control;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public struct MoveValue
 {
@@ -12,4 +13,5 @@ public struct MoveValue
 public interface IController
 {
     public MoveValue GetControllerValue();
+    public void Init(VisualElement target);
 }

@@ -12,14 +12,15 @@ public class CameraManager : MonoBehaviour, IManager
     // UXML 비주얼 엘리먼트 이름
     [SerializeField] private const string ContainerRotation = "ContainerRotation";
     [SerializeField] private GameObject containerRotation;
-    private DragUI dragUI;
+    private CameraRotation cameraRotation;
     [SerializeField] private float rotateSpeed = 10.0f;
 
 
     [SerializeField] private float followSmooth = 10.0f;
 
     private GameObject mainCamera;
-    private GameObject _currentCamera;
+    private GameObject _currentCameraObject;
+    internal Camera CurrentCamera;
     private bool _isFollowing;
 
     private bool drag;
@@ -30,7 +31,7 @@ public class CameraManager : MonoBehaviour, IManager
         FollowCamera();
 
 
-        if (dragUI._isDrag)
+        if (cameraRotation.IsDrag)
         {
             RotationCamera();
         }
@@ -45,7 +46,7 @@ public class CameraManager : MonoBehaviour, IManager
 
         VisualElement root = containerRotation.GetComponent<UIDocument>().rootVisualElement;
         root.RegisterCallback<GeometryChangedEvent>(RegisterCallback);
-        dragUI =
+        cameraRotation =
             new(root.Q<VisualElement>(ContainerRotation));
     }
 
@@ -56,45 +57,46 @@ public class CameraManager : MonoBehaviour, IManager
 
     void ChangeCamera(GameObject useCamera)
     {
-        _currentCamera = useCamera;
+        _currentCameraObject = useCamera;
+        CurrentCamera = _currentCameraObject.GetComponentInChildren<Camera>();
     }
 
     private void FollowCamera()
     {
-        if (_currentCamera == null || !_isFollowing) return;
+        if (_currentCameraObject == null || !_isFollowing) return;
 
         var player = GameManager.Instance.player;
 
         if (player == null) return;
 
         var playerPosition = player.transform.position;
-        var currentPosition = _currentCamera.transform.position;
+        var currentPosition = _currentCameraObject.transform.position;
         var newPosition = new Vector3(playerPosition.x, currentPosition.y,
             playerPosition.z);
 
-        _currentCamera.transform.position = Vector3.Lerp(currentPosition, newPosition,
+        _currentCameraObject.transform.position = Vector3.Lerp(currentPosition, newPosition,
             Time.deltaTime * followSmooth);
     }
 
 
     private void RotationCamera()
     {
-        if (dragUI.dragVector == Vector2.zero)
+        if (cameraRotation.DragVector == Vector2.zero)
             return;
 
-        yRotate += -dragUI.dragVector.x * Time.deltaTime * rotateSpeed;
-        xRotate += dragUI.dragVector.y * Time.deltaTime * rotateSpeed;
+        yRotate += -cameraRotation.DragVector.x * Time.deltaTime * rotateSpeed;
+        xRotate += cameraRotation.DragVector.y * Time.deltaTime * rotateSpeed;
 
         xRotate = Mathf.Clamp(xRotate, -70, 35);
 
-        _currentCamera.transform.eulerAngles = new Vector3(-xRotate, yRotate, 0);
-        
-        dragUI.dragVector = Vector2.zero;
+        _currentCameraObject.transform.eulerAngles = new Vector3(-xRotate, yRotate, 0);
+
+        cameraRotation.DragVector = Vector2.zero;
     }
 
     internal Vector3 GetCameraDirection()
     {
-        return _currentCamera.transform.TransformDirection(
-            GameManager.Instance.controlManager.currentController.GetControllerValue().vector);
+        return _currentCameraObject.transform.TransformDirection(
+            GameManager.Instance.controlManager.CurrentController.GetControllerValue().vector);
     }
 }

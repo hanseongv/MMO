@@ -16,10 +16,8 @@ public class Character : MonoBehaviour
 
     private State currentState;
     private StateMachine _stateMachine;
-    [SerializeField]
-    private BaseState IdleState;
-    [SerializeField]
-    protected BaseState MoveState;
+    [SerializeField] private BaseState IdleState;
+    [SerializeField] protected BaseState MoveState;
 
     public float moveSpeed = 1.0f;
     internal float moveSpeedValue = 1.0f;
@@ -45,15 +43,24 @@ public class Character : MonoBehaviour
         }
     }
 
-    protected virtual void Start()
+    internal virtual void Init()
     {
         IdleState = new IdleState(this);
         currentState = State.Idle;
         _stateMachine = new StateMachine(IdleState);
     }
+    // protected virtual void Start()
+    // {
+    //     IdleState = new IdleState(this);
+    //     currentState = State.Idle;
+    //     _stateMachine = new StateMachine(IdleState);
+    // }
 
     protected virtual void Update()
     {
+        if (_stateMachine == null)
+            return;
+        
         _stateMachine.UpdateState();
     }
 }

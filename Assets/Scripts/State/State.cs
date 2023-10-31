@@ -35,7 +35,7 @@ public class MyPlayerMoveState : BaseState
 
     public override void OnStateUpdate()
     {
-        var moveSpeedValue = GameManager.Instance.controlManager.currentController.GetControllerValue().value;
+        var moveSpeedValue = GameManager.Instance.controlManager.CurrentController.GetControllerValue().value;
 
         // 카메라가 바라보는 방향
         var cameraDirection = GameManager.Instance.cameraManager.GetCameraDirection();
