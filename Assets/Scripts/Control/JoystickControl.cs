@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,10 +12,30 @@ namespace Control
         // set target을 할 때 레지스터가 등록. (Manipulator.cs 38줄 참고)
         protected override void RegisterCallbacksOnTarget()
         {
-            target.RegisterCallback<PointerDownEvent>(PointerDownHandler);
-            target.RegisterCallback<PointerMoveEvent>(PointerMoveHandler);
-            target.RegisterCallback<PointerUpEvent>(PointerUpHandler);
+            RegisterCallbackOnTarget<PointerDownEvent>(PointerDownHandler);
+            RegisterCallbackOnTarget<PointerMoveEvent>(PointerMoveHandler);
+            RegisterCallbackOnTarget<PointerUpEvent>(PointerUpHandler);
         }
+
+
+        private void RegisterCallbackOnTarget<T>(EventCallback<T> eventHandler)
+            where T : PointerEventBase<T>, new()
+        {
+            target.RegisterCallback<T>(eventHandler);
+        }
+
+        private void RegisterCallbackOnTarget<T>(T eventInstance)
+            where T : EventBase<T>, new()
+        {
+        }
+        // protected override void RegisterCallbacksOnTarget()
+        // {
+        //     target.RegisterCallback<PointerDownEvent>(PointerDownHandler);
+        //     target.RegisterCallback<PointerMoveEvent>(PointerMoveHandler);
+        //     target.RegisterCallback<PointerUpEvent>(PointerUpHandler);
+        //
+        //     // Register()
+        // }
 
         protected override void UnregisterCallbacksFromTarget()
         {

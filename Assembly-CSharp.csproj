@@ -77,7 +77,6 @@
      <None Include="Assets/UI/Uxml/CameraRotationUI.uxml" />
      <Folder Include="Assets/Scripts/State" />
      <Folder Include="Assets/UI/Uss" />
-     <Folder Include="Assets/Scripts/Commons" />
      <Folder Include="Assets/Animations/Animators" />
      <Folder Include="Assets/Scripts/Control" />
      <Folder Include="Assets/Animations" />
