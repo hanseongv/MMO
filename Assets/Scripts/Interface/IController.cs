@@ -11,5 +11,5 @@ public struct MoveValue
 public interface IController
 {
     public MoveValue GetControllerValue();
-    // public void Init(VisualElement target);
+    public void ControllerInit(VisualElement target);
 }

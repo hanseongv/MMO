@@ -1,55 +1,29 @@
 using System;
 using System.Collections.Generic;
+using Abstract;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Control
 {
-    public class JoystickControl : PointerManipulator, IController
+    public class JoystickControl : BaseDragManipulator, IController
     {
-        #region Init
-
-        // set target을 할 때 레지스터가 등록. (Manipulator.cs 38줄 참고)
-        private void RegisterCallbackOnTarget<T>(EventCallback<T> callback, bool unregister = false)
-            where T : PointerEventBase<T>, new()
-        {
-            if (unregister)
-                target.UnregisterCallback<T>(callback);
-            else
-                target.RegisterCallback<T>(callback);
-        }
-
-        protected override void RegisterCallbacksOnTarget()
-        {
-            RegisterCallbackOnTarget<PointerDownEvent>(PointerDownHandler);
-            RegisterCallbackOnTarget<PointerMoveEvent>(PointerMoveHandler);
-            RegisterCallbackOnTarget<PointerUpEvent>(PointerUpHandler);
-        }
-
-        protected override void UnregisterCallbacksFromTarget()
-        {
-            RegisterCallbackOnTarget<PointerDownEvent>(PointerDownHandler, true);
-            RegisterCallbackOnTarget<PointerMoveEvent>(PointerMoveHandler, true);
-            RegisterCallbackOnTarget<PointerUpEvent>(PointerUpHandler, true);
-        }
-
         const string ImageJoystickBound = "ImageJoystickBound";
         const string ImageJoystickLever = "ImageJoystickLever";
 
-        public void Init(VisualElement t)
+        public void ControllerInit(VisualElement t)
         {
-            target = t;
+            base.Init(t);
+
             joystickBound = target.Q<VisualElement>(ImageJoystickBound);
             joystickLever = target.Q<VisualElement>(ImageJoystickLever);
             // _boundRadius = joystickBound.localBound.width / 2.0f;
             _boundRadius = joystickBound.localBound.width;
         }
 
-        #endregion
 
         #region Properties
 
-        private bool _isDrag;
         private float _boundRadius;
         private VisualElement joystickLever;
         private VisualElement joystickBound;
@@ -57,20 +31,19 @@ namespace Control
 
         #endregion
 
-        private void PointerDownHandler(PointerDownEvent evt)
+        protected override void PointerDownHandler(PointerDownEvent evt)
         {
-            joystickLever.transform.position = Vector2.zero;
+            base.PointerDownHandler(evt);
 
-            _isDrag = true;
+            joystickLever.transform.position = Vector2.zero;
             var pos = -(joystickBound.layout.center - (Vector2)evt.position);
             joystickBound.transform.position = pos;
             _pointerStartPosition = evt.position;
-            target.CapturePointer(evt.pointerId);
         }
 
-        private void PointerMoveHandler(PointerMoveEvent evt)
+        protected override void PointerMoveHandler(PointerMoveEvent evt)
         {
-            if (!_isDrag) return;
+            if (!IsDrag) return;
 
             if (joystickLever.ClassListContains("joystick--on") == false)
                 joystickLever.AddToClassList("joystick--on");
@@ -79,22 +52,18 @@ namespace Control
                 _boundRadius);
         }
 
-        private void PointerUpHandler(PointerUpEvent evt)
+        protected override void PointerUpHandler(PointerUpEvent evt)
         {
-            if (!_isDrag) return;
-
-            _isDrag = false;
-            target.ReleasePointer(evt.pointerId);
+            if (!IsDrag) return;
 
             if (joystickLever.ClassListContains("joystick--on"))
                 joystickLever.RemoveFromClassList("joystick--on");
-
-            // joystickLever.transform.position = Vector2.zero;
+            base.PointerUpHandler(evt);
         }
 
         public MoveValue GetControllerValue()
         {
-            if (joystickLever == null || !_isDrag) return new MoveValue();
+            if (joystickLever == null || !IsDrag) return new MoveValue();
             var pos = joystickLever.transform.position.normalized;
 
             return new MoveValue()

@@ -6,9 +6,8 @@ using UnityEngine.UIElements;
 public class CameraManager : MonoBehaviour, IManager
 {
     // UXML 비주얼 엘리먼트 이름
-    [SerializeField] private const string ContainerRotation = "ContainerRotation";
     [SerializeField] private GameObject containerRotation;
-    private CameraRotation cameraRotation=new CameraRotation();
+    private CameraRotation cameraRotation = new CameraRotation();
     [SerializeField] private float rotateSpeed = 10.0f;
 
 
@@ -18,9 +17,8 @@ public class CameraManager : MonoBehaviour, IManager
     private GameObject _currentCameraObject;
     internal Camera CurrentCamera;
     private bool _isFollowing;
+    private const string ContainerRotation = "ContainerRotation";
 
-    private bool drag;
-    private float xRotate, yRotate;
     VisualElement root;
 
     private void Update()
@@ -76,12 +74,14 @@ public class CameraManager : MonoBehaviour, IManager
             Time.deltaTime * followSmooth);
     }
 
-
+    private float xRotate, yRotate;
     private void RotationCamera()
     {
+        print("체크2");
+
         if (cameraRotation.DragVector == Vector2.zero)
             return;
-
+print("체크1");
         yRotate += -cameraRotation.DragVector.x * Time.deltaTime * rotateSpeed;
         xRotate += cameraRotation.DragVector.y * Time.deltaTime * rotateSpeed;
 

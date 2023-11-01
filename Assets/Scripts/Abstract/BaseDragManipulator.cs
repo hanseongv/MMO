@@ -12,7 +12,7 @@ namespace Abstract
         }
 
         internal bool IsDrag;
-
+        // set target을 할 때 레지스터가 등록. (Manipulator.cs 38줄 참고)
         private void RegisterCallbackOnTarget<T>(EventCallback<T> callback, bool unregister = false)
             where T : PointerEventBase<T>, new()
         {
@@ -38,8 +38,7 @@ namespace Abstract
         #endregion
 
 
-        internal Vector2 DragVector;
-        private Vector2 currentPosition;
+
 
 
         protected virtual void PointerDownHandler(PointerDownEvent evt)
@@ -51,13 +50,11 @@ namespace Abstract
 
         protected virtual void PointerMoveHandler(PointerMoveEvent evt)
         {
-            if (!IsDrag) return;
         }
 
 
         protected virtual void PointerUpHandler(PointerUpEvent evt)
         {
-            if (!IsDrag) return;
 
             IsDrag = false;
             target.ReleasePointer(evt.pointerId);

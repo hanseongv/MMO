@@ -44,7 +44,7 @@ namespace Manager
 
         private void GeometryChangedEventCallback(GeometryChangedEvent evt)
         {
-            CurrentController.Init(root.Q<VisualElement>(ControlContainer));
+            CurrentController.ControllerInit(root.Q<VisualElement>(ControlContainer));
         }
 
         public MoveValue GetControllerValue()
