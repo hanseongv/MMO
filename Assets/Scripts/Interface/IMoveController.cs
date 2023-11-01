@@ -8,7 +8,7 @@ public struct MoveValue
     public float value;
 }
 
-public interface IController
+public interface IMoveController
 {
     public MoveValue GetControllerValue();
     public void ControllerInit(VisualElement target);

@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 namespace Control
 {
-    public class JoystickControl : BaseDragManipulator, IController
+    public class JoystickControl : BaseDragManipulator, IMoveController
     {
         const string ImageJoystickBound = "ImageJoystickBound";
         const string ImageJoystickLever = "ImageJoystickLever";

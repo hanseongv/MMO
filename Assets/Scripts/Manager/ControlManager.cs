@@ -1,4 +1,3 @@
-
 using Control;
 using State.Interface;
 using UnityEngine;
@@ -6,29 +5,28 @@ using UnityEngine.UIElements;
 
 namespace Manager
 {
-    internal enum ControlType
+    internal enum MoveControlType
     {
         Joystick,
     }
 
     public class ControlManager : MonoBehaviour, IManager
     {
-        [SerializeField] private ControlType controlType;
-        private const string ControlContainer = "ControlContainer";
-
-        internal IController CurrentController;
         private VisualElement root;
+
+        [SerializeField] private MoveControlType moveControlType;
+        private const string MoveControlContainer = "ControlContainer";
+        internal IMoveController CurrentMoveMoveController;
 
         public void Init()
         {
             // UI 도큐먼트에 있는 최상위 비주얼 엘리먼트를 참조.
             root = GetComponent<UIDocument>().rootVisualElement;
 
-
-            switch (controlType)
+            switch (moveControlType)
             {
-                case ControlType.Joystick:
-                    CurrentController = new JoystickControl();
+                case MoveControlType.Joystick:
+                    CurrentMoveMoveController = new JoystickControl();
                     break;
             }
 
@@ -41,15 +39,14 @@ namespace Manager
             root.RegisterCallback<GeometryChangedEvent>(GeometryChangedEventCallback);
         }
 
-
         private void GeometryChangedEventCallback(GeometryChangedEvent evt)
         {
-            CurrentController.ControllerInit(root.Q<VisualElement>(ControlContainer));
+            CurrentMoveMoveController.ControllerInit(root.Q<VisualElement>(MoveControlContainer));
         }
 
-        public MoveValue GetControllerValue()
+        internal MoveValue GetControllerValue()
         {
-            return CurrentController.GetControllerValue();
+            return CurrentMoveMoveController.GetControllerValue();
         }
     }
 }

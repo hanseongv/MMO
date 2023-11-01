@@ -6,12 +6,13 @@ namespace Abstract
     public abstract class BaseDragManipulator : PointerManipulator
     {
         #region Init
-        internal virtual void Init(VisualElement t)
+        internal bool IsDrag;
+
+        internal void Init(VisualElement t)
         {
             target = t;
         }
 
-        internal bool IsDrag;
         // set target을 할 때 레지스터가 등록. (Manipulator.cs 38줄 참고)
         private void RegisterCallbackOnTarget<T>(EventCallback<T> callback, bool unregister = false)
             where T : PointerEventBase<T>, new()
@@ -35,10 +36,8 @@ namespace Abstract
             RegisterCallbackOnTarget<PointerMoveEvent>(PointerMoveHandler, true);
             RegisterCallbackOnTarget<PointerUpEvent>(PointerUpHandler, true);
         }
+
         #endregion
-
-
-
 
 
         protected virtual void PointerDownHandler(PointerDownEvent evt)
@@ -47,15 +46,12 @@ namespace Abstract
             IsDrag = true;
         }
 
-
         protected virtual void PointerMoveHandler(PointerMoveEvent evt)
         {
         }
 
-
         protected virtual void PointerUpHandler(PointerUpEvent evt)
         {
-
             IsDrag = false;
             target.ReleasePointer(evt.pointerId);
         }

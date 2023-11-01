@@ -24,7 +24,7 @@ public class Player : Character
     {
         base.Update();
 
-        var controllerValue = GameManager.Instance.controlManager.CurrentController.GetControllerValue().value;
+        var controllerValue = GameManager.Instance.controlManager.GetControllerValue().value;
         if (0.0f < controllerValue)
         {
             ChangeState(State.Move);
