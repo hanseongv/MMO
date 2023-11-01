@@ -54,7 +54,6 @@ namespace Abstract
         protected virtual void PointerUpHandler(PointerUpEvent evt)
         {
             IsDrag = false;
-
             target.ReleasePointer(evt.pointerId);
         }
     }

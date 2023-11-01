@@ -1,31 +1,33 @@
-using _02.Scripts.State;
-using UnityEngine;
+using Abstract;
 
-public class StateMachine
+namespace State
 {
-    private BaseState currentState;
-
-    public StateMachine(BaseState state)
+    public class StateMachine
     {
-        currentState = state;
-        ChangeState(currentState);
-    }
+        private BaseState currentState;
 
-    public void ChangeState(BaseState state)
-    {
-        if (currentState == state) return;
+        public StateMachine(BaseState state)
+        {
+            currentState = state;
+            ChangeState(currentState);
+        }
 
-        if (currentState != null)
-            currentState.OnStateExit();
+        public void ChangeState(BaseState state)
+        {
+            if (currentState == state) return;
 
-        currentState = state;
-        currentState.OnStateEnter();
-    }
+            if (currentState != null)
+                currentState.OnStateExit();
 
-    public void UpdateState()
-    {
-        if (currentState == null) return;
+            currentState = state;
+            currentState.OnStateEnter();
+        }
 
-        currentState.OnStateUpdate();
+        public void UpdateState()
+        {
+            if (currentState == null) return;
+
+            currentState.OnStateUpdate();
+        }
     }
 }

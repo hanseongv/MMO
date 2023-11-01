@@ -1,4 +1,4 @@
-namespace State.Interface
+namespace Interface
 {
     public interface IManager
     {

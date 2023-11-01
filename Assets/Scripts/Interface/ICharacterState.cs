@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Characters;
 
-public interface ICharacterState
+namespace Interface
 {
-    void Handle(Character character);
+    public interface ICharacterState
+    {
+        void Handle(Character character);
+    }
 }

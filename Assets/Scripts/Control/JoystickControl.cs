@@ -1,4 +1,5 @@
 using Abstract;
+using Interface;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -67,8 +68,8 @@ namespace Control
 
             return new MoveValue()
             {
-                value = joystickLever.transform.position.magnitude / _boundRadius,
-                vector = new Vector3(pos.x, 0, -pos.y)
+                Value = joystickLever.transform.position.magnitude / _boundRadius,
+                Vector = new Vector3(pos.x, 0, -pos.y)
             };
         }
     }

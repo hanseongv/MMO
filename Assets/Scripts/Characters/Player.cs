@@ -1,6 +1,8 @@
+using Manager;
+using State;
 using UnityEngine;
 
-namespace Player
+namespace Characters
 {
     public class Player : Character
     {
@@ -15,8 +17,8 @@ namespace Player
         {
             base.Update();
 
-            var controllerValue = GameManager.Instance.controlManager.GetControllerValue().value;
-            ChangeState(0.0f < controllerValue ? State.Move : State.Idle);
+            var controllerValue = GameManager.Instance.controlManager.GetControllerValue().Value;
+            ChangeState(0.0f < controllerValue ? CharacterStateType.Move : CharacterStateType.Idle);
         }
     }
 }

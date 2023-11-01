@@ -1,15 +1,17 @@
-
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public struct MoveValue
+namespace Interface
 {
-    public Vector3 vector;
-    public float value;
-}
+    public struct MoveValue
+    {
+        public Vector3 Vector;
+        public float Value;
+    }
 
-public interface IMoveController
-{
-    public MoveValue GetControllerValue();
-    public void ControllerInit(VisualElement target);
+    public interface IMoveController
+    {
+        public MoveValue GetControllerValue();
+        public void ControllerInit(VisualElement target);
+    }
 }

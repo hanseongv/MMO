@@ -1,14 +1,15 @@
-using UnityEngine;
 
-namespace _02.Scripts.State
+using Characters;
+
+namespace Abstract
 {
     public abstract class BaseState 
     {
-        internal Character _character;
+        internal readonly Character Character;
 
         protected BaseState(Character character)
         {
-            _character = character;
+            Character = character;
         }
 
         public abstract void OnStateEnter();
