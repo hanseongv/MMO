@@ -27,6 +27,9 @@ namespace Manager
             레이아웃이 초기 널 값에서 값이 제대로 들어갔을 때 == 레이아웃이 변경되었을 때(GeometryChangedEvent)로 체크 후에 필요한 값을 등록
             */
             root.RegisterCallback<GeometryChangedEvent>(GeometryChangedEventCallback);
+
+            //todo 테스트로 처음부터 오브젝트를 선택 할 수 있게 해둠.
+            useSelect = true;
         }
 
         private void GeometryChangedEventCallback(GeometryChangedEvent evt)
@@ -38,6 +41,7 @@ namespace Manager
         private void Update()
         {
             CameraRotationControlUpdate();
+            SelectObjectControlUpdate();
         }
     }
 
@@ -132,6 +136,27 @@ namespace Manager
                 new Vector3(-xRotate, yRotate, 0);
 
             cameraRotation.DragVector = Vector2.zero;
+        }
+    }
+
+    // Select Object Control
+    internal partial class ControlManager
+    {
+        private bool useSelect;
+        private readonly SelectObject _selectObject = new SelectObject();
+
+        private void SelectObjectControlUpdate()
+        {
+            if(!useSelect)
+                return;
+            
+            var hit = _selectObject.SelectObjectUpdate();
+            if (hit == null)
+                return;
+            
+            Debug.Log(hit?.collider.name);
+
+          
         }
     }
 }

@@ -57,7 +57,7 @@
      <Compile Include="Assets/Scripts/Characters/Player.cs" />
      <Compile Include="Assets/Scripts/Control/JoystickControl.cs" />
      <Compile Include="Assets/Scripts/Manager/GameManager.cs" />
-     <Compile Include="Assets/Scripts/Manager/SelectObjectManager.cs" />
+     <Compile Include="Assets/Scripts/Control/SelectObject.cs" />
      <Compile Include="Assets/Scripts/State/CharacterStateType.cs" />
      <Compile Include="Assets/Scripts/Interface/ICharacterState.cs" />
      <Compile Include="Assets/Scripts/Abstract/BaseDragManipulator.cs" />
