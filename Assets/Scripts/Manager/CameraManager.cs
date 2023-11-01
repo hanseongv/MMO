@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using _02.Scripts.Control;
 using State.Interface;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,7 +8,7 @@ public class CameraManager : MonoBehaviour, IManager
     // UXML 비주얼 엘리먼트 이름
     [SerializeField] private const string ContainerRotation = "ContainerRotation";
     [SerializeField] private GameObject containerRotation;
-    private CameraRotation cameraRotation;
+    private CameraRotation cameraRotation=new CameraRotation();
     [SerializeField] private float rotateSpeed = 10.0f;
 
 
@@ -25,11 +21,14 @@ public class CameraManager : MonoBehaviour, IManager
 
     private bool drag;
     private float xRotate, yRotate;
+    VisualElement root;
 
     private void Update()
     {
         FollowCamera();
 
+        if (cameraRotation == null)
+            return;
 
         if (cameraRotation.IsDrag)
         {
@@ -44,14 +43,13 @@ public class CameraManager : MonoBehaviour, IManager
         ChangeCamera(mainCamera);
 
 
-        VisualElement root = containerRotation.GetComponent<UIDocument>().rootVisualElement;
-        root.RegisterCallback<GeometryChangedEvent>(RegisterCallback);
-        cameraRotation =
-            new(root.Q<VisualElement>(ContainerRotation));
+        root = containerRotation.GetComponent<UIDocument>().rootVisualElement;
+        root.RegisterCallback<GeometryChangedEvent>(GeometryChangedEventCallback);
     }
 
-    private void RegisterCallback(GeometryChangedEvent evt)
+    private void GeometryChangedEventCallback(GeometryChangedEvent evt)
     {
+        cameraRotation.Init(root.Q<VisualElement>(ContainerRotation));
     }
 
 

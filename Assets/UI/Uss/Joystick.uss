@@ -1,5 +1,5 @@
 .joystick {
-    background-image: url('project://database/Assets/Images/Joystick/AllAxis_Plain_Arrows.png?fileID=2800000&guid=2a1f3cba20f3e11498474a705db12fde&type=3#AllAxis_Plain_Arrows');
+    background-image: url('project://database/Assets/Images/Controller/Joystick/AllAxis_Plain_Arrows.png?fileID=2800000&guid=2a1f3cba20f3e11498474a705db12fde&type=3#AllAxis_Plain_Arrows');
     width: 150px;
     height: 150px;
     -unity-background-image-tint-color: rgba(255, 255, 255, 0);

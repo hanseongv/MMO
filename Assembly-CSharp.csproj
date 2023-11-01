@@ -46,12 +46,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets/Scripts/Interface/IController.cs" />
-     <Compile Include="Assets/Scripts/Control/DragManipulator.cs" />
      <Compile Include="Assets/Scripts/Manager/ControlManager.cs" />
      <Compile Include="Assets/Scripts/Control/CameraRotation.cs" />
      <Compile Include="Assets/Scripts/State/StateMachine.cs" />
      <Compile Include="Assets/Scripts/State/State.cs" />
-     <Compile Include="Assets/Scripts/Control/DragAbstract.cs" />
      <Compile Include="Assets/Scripts/Manager/CameraManager.cs" />
      <Compile Include="Assets/Scripts/Player/Player.cs" />
      <Compile Include="Assets/Scripts/Interface/IManager.cs" />
@@ -63,24 +61,28 @@
      <Compile Include="Assets/Scripts/Manager/SelectObjectManager.cs" />
      <Compile Include="Assets/Scripts/Control/SelectObject.cs" />
      <Compile Include="Assets/Scripts/Interface/ICharacterState.cs" />
+     <Compile Include="Assets/Scripts/Abstract/BaseDragManipulator.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/UI/Uss/Button.uss" />
      <Folder Include="Assets/Scripts" />
      <Folder Include="Assets/Settings" />
      <Folder Include="Assets/UI/UI Toolkit" />
      <Folder Include="Assets/Prefabs" />
+     <None Include="Assets/UI/Uss/CameraRotation.uss" />
      <Folder Include="Assets/Models/Characters" />
      <None Include="Assets/UI/Uss/Joystick.uss" />
      <Folder Include="Assets/UI/UI Toolkit/UnityThemes" />
      <Folder Include="Assets/Models" />
+     <Folder Include="Assets/Images/Controller" />
      <Folder Include="Assets/Scripts/Player" />
      <None Include="Assets/UI/Uxml/CameraRotationUI.uxml" />
      <Folder Include="Assets/Scripts/State" />
      <Folder Include="Assets/UI/Uss" />
+     <Folder Include="Assets/Scripts/Commons" />
      <Folder Include="Assets/Animations/Animators" />
      <Folder Include="Assets/Scripts/Control" />
      <Folder Include="Assets/Animations" />
-     <Folder Include="Assets/Images/Joystick" />
+     <Folder Include="Assets/Images/Controller/Joystick" />
      <Folder Include="Assets/Images" />
      <Folder Include="Assets/Animations/Animation" />
      <Folder Include="Assets/Sounds" />

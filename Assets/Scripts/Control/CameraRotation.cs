@@ -1,39 +1,38 @@
+using Abstract;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace _02.Scripts.Control
+public class CameraRotation : BaseDragManipulator
 {
-    public class CameraRotation : DragAbstract
+    internal override void Init(VisualElement t)
     {
-        public CameraRotation(VisualElement target) : base(target)
-        {
-        }
+        base.Init(t);
+    }
 
-        internal Vector2 dragVector;
-        private Vector2 _targetStartPosition;
-        private Vector2 currentPosition;
+    internal Vector2 dragVector;
+    private Vector2 _targetStartPosition;
+    private Vector2 currentPosition;
 
-        protected override void PointerDownHandler(PointerDownEvent evt)
-        {
-            base.PointerDownHandler(evt);
+    protected override void PointerDownHandler(PointerDownEvent evt)
+    {
+        base.PointerDownHandler(evt);
 
-            dragVector = Vector2.zero;
-            currentPosition = evt.position;
-        }
+        dragVector = Vector2.zero;
+        currentPosition = evt.position;
+    }
 
-        protected override void PointerMoveHandler(PointerMoveEvent evt)
-        {
-            base.PointerMoveHandler(evt);
+    protected override void PointerMoveHandler(PointerMoveEvent evt)
+    {
+        base.PointerMoveHandler(evt);
 
-            var pointerDelta = currentPosition - (Vector2)evt.position;
-            currentPosition = evt.position;
+        var pointerDelta = currentPosition - (Vector2)evt.position;
+        currentPosition = evt.position;
 
-            dragVector = pointerDelta;
-        }
+        dragVector = pointerDelta;
+    }
 
-        protected override void PointerUpHandler(PointerUpEvent evt)
-        {
-            base.PointerUpHandler(evt);
-        }
+    protected override void PointerUpHandler(PointerUpEvent evt)
+    {
+        base.PointerUpHandler(evt);
     }
 }

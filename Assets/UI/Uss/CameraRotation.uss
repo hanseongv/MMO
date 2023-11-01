@@ -1,0 +1,21 @@
+.camerarotation {
+    flex-grow: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('project://database/Assets/Images/Controller/eye.png?fileID=2800000&guid=802b3095d9e8845198061743194cca96&type=3#eye');
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    -unity-background-image-tint-color: rgba(75, 75, 75, 0.39);
+    flex-shrink: 0;
+    overflow: visible;
+    visibility: visible;
+    display: flex;
+    opacity: 1;
+}
+
+.camerarotation--on {
+    scale: 1.05 1.05;
+    -unity-background-image-tint-color: rgba(75, 75, 75, 0.47);
+}

@@ -10,6 +10,15 @@ namespace Control
         #region Init
 
         // set target을 할 때 레지스터가 등록. (Manipulator.cs 38줄 참고)
+        private void RegisterCallbackOnTarget<T>(EventCallback<T> callback, bool unregister = false)
+            where T : PointerEventBase<T>, new()
+        {
+            if (unregister)
+                target.UnregisterCallback<T>(callback);
+            else
+                target.RegisterCallback<T>(callback);
+        }
+
         protected override void RegisterCallbacksOnTarget()
         {
             RegisterCallbackOnTarget<PointerDownEvent>(PointerDownHandler);
@@ -17,31 +26,11 @@ namespace Control
             RegisterCallbackOnTarget<PointerUpEvent>(PointerUpHandler);
         }
 
-
-        private void RegisterCallbackOnTarget<T>(EventCallback<T> eventHandler)
-            where T : PointerEventBase<T>, new()
-        {
-            target.RegisterCallback<T>(eventHandler);
-        }
-
-        private void RegisterCallbackOnTarget<T>(T eventInstance)
-            where T : EventBase<T>, new()
-        {
-        }
-        // protected override void RegisterCallbacksOnTarget()
-        // {
-        //     target.RegisterCallback<PointerDownEvent>(PointerDownHandler);
-        //     target.RegisterCallback<PointerMoveEvent>(PointerMoveHandler);
-        //     target.RegisterCallback<PointerUpEvent>(PointerUpHandler);
-        //
-        //     // Register()
-        // }
-
         protected override void UnregisterCallbacksFromTarget()
         {
-            target.UnregisterCallback<PointerDownEvent>(PointerDownHandler);
-            target.UnregisterCallback<PointerMoveEvent>(PointerMoveHandler);
-            target.UnregisterCallback<PointerUpEvent>(PointerUpHandler);
+            RegisterCallbackOnTarget<PointerDownEvent>(PointerDownHandler, true);
+            RegisterCallbackOnTarget<PointerMoveEvent>(PointerMoveHandler, true);
+            RegisterCallbackOnTarget<PointerUpEvent>(PointerUpHandler, true);
         }
 
         const string ImageJoystickBound = "ImageJoystickBound";

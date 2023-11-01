@@ -1,8 +1,12 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Uss/Joystick.uss?fileID=7433441132597879392&amp;guid=53642cd2385d3493ba9b967cf619ed32&amp;type=3#Joystick" />
-    <ui:VisualElement name="ControlContainer" style="flex-grow: 0; background-color: rgba(255, 0, 0, 0); width: 100%; height: 100%; flex-direction: column-reverse; align-items: center; align-self: auto; justify-content: center; display: flex; visibility: visible; position: absolute; bottom: 0; flex-shrink: 0;">
+    <Style src="project://database/Assets/UI/Uss/CameraRotation.uss?fileID=7433441132597879392&amp;guid=d11bc6f24e74e4f38b960948ec7ada3e&amp;type=3#CameraRotation" />
+    <ui:VisualElement name="ControlContainer" style="flex-grow: 0; background-color: rgba(0, 179, 255, 0); width: 100%; height: 100%; flex-direction: column-reverse; align-items: center; align-self: auto; justify-content: center; display: flex; visibility: visible; position: absolute; bottom: 0; flex-shrink: 0;">
         <ui:VisualElement name="ImageJoystickBound" style="flex-grow: 0; width: 300px; height: 300px; background-image: none; align-items: center; justify-content: center; position: absolute; flex-shrink: 0; display: flex; visibility: visible; overflow: visible; opacity: 1; background-color: rgba(0, 0, 0, 0); bottom: auto; left: auto; top: auto; right: auto;">
             <ui:VisualElement name="ImageJoystickLever" class="joystick" />
+        </ui:VisualElement>
+        <ui:VisualElement tabindex="0" usage-hints="None" name="ImageCameraRotationBound" style="flex-grow: 0; bottom: 100px; width: 100px; height: 100px; position: absolute; left: 100px; background-image: url(&apos;project://database/Assets/Images/Controller/Joystick/AllAxis_Outline.png?fileID=2800000&amp;guid=5b56d9fa0e8bd6e409ed188db38a692c&amp;type=3#AllAxis_Outline&apos;); overflow: visible; -unity-background-image-tint-color: rgba(255, 255, 255, 0);">
+            <ui:VisualElement tabindex="0" usage-hints="None" name="ImageCameraRotationEye" class="camerarotation" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

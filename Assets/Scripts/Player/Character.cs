@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using _02.Scripts.Control;
+
 using _02.Scripts.State;
 using State;
 using UnityEngine;
