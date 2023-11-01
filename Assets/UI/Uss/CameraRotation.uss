@@ -7,7 +7,7 @@
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     border-bottom-left-radius: 50%;
-    -unity-background-image-tint-color: rgba(75, 75, 75, 0.39);
+    -unity-background-image-tint-color: rgba(130, 130, 130, 0.5);
     flex-shrink: 0;
     overflow: visible;
     visibility: visible;
@@ -16,6 +16,6 @@
 }
 
 .camerarotation--on {
-    scale: 1.05 1.05;
-    -unity-background-image-tint-color: rgba(75, 75, 75, 0.47);
+    scale: 1.1 1.1;
+    -unity-background-image-tint-color: rgba(130, 130, 130, 0.6);
 }

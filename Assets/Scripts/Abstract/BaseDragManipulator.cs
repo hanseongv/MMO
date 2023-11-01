@@ -6,6 +6,7 @@ namespace Abstract
     public abstract class BaseDragManipulator : PointerManipulator
     {
         #region Init
+
         internal bool IsDrag;
 
         internal void Init(VisualElement t)
@@ -53,6 +54,7 @@ namespace Abstract
         protected virtual void PointerUpHandler(PointerUpEvent evt)
         {
             IsDrag = false;
+
             target.ReleasePointer(evt.pointerId);
         }
     }

@@ -1,37 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using _02.Scripts.State;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player : Character
+namespace Player
 {
-    internal override void Init()
+    public class Player : Character
     {
-        MoveState = new MyPlayerMoveState(this);
-        Animator = GetComponent<Animator>();
-        base.Init();
-    }
-    // protected override void Start()
-    // {
-    //     MoveState = new MyPlayerMoveState(this);
-    //     Animator = GetComponent<Animator>();
-    //     base.Start();
-    // }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        var controllerValue = GameManager.Instance.controlManager.GetControllerValue().value;
-        if (0.0f < controllerValue)
+        internal override void Init()
         {
-            ChangeState(State.Move);
+            MoveState = new MyPlayerMoveState(this);
+            Animator = GetComponent<Animator>();
+            base.Init();
         }
-        else
+
+        protected override void Update()
         {
-            ChangeState(State.Idle);
+            base.Update();
+
+            var controllerValue = GameManager.Instance.controlManager.GetControllerValue().value;
+            ChangeState(0.0f < controllerValue ? State.Move : State.Idle);
         }
     }
 }

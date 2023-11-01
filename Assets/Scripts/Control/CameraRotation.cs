@@ -13,8 +13,11 @@ namespace Control
 
         protected override void PointerDownHandler(PointerDownEvent evt)
         {
-            base.PointerDownHandler(evt);
+            if (IsDrag) return;
 
+            base.PointerDownHandler(evt);
+            if (target.ClassListContains("camerarotation--on") == false)
+                target.AddToClassList("camerarotation--on");
             DragVector = Vector2.zero;
             currentPosition = evt.position;
         }
@@ -31,7 +34,8 @@ namespace Control
         protected override void PointerUpHandler(PointerUpEvent evt)
         {
             if (!IsDrag) return;
-
+            if (target.ClassListContains("camerarotation--on"))
+                target.RemoveFromClassList("camerarotation--on");
             base.PointerUpHandler(evt);
         }
     }

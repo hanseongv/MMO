@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] internal Player player;
+    [SerializeField] internal Player.Player player;
     [SerializeField] internal CameraManager cameraManager;
     [SerializeField] internal ControlManager controlManager;
 
@@ -23,7 +23,7 @@ public class GameManager : Singleton<GameManager>
 
     void Init()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        player = GameObject.FindWithTag("Player").GetComponent<Player.Player>();
         _managers = GetComponentsInChildren<IManager>();
         Array.ForEach(_managers, manager => manager.Init());
         player.Init();

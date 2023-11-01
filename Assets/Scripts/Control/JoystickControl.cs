@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Abstract;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,33 +6,34 @@ namespace Control
 {
     public class JoystickControl : BaseDragManipulator, IMoveController
     {
-        const string ImageJoystickBound = "ImageJoystickBound";
-        const string ImageJoystickLever = "ImageJoystickLever";
-
-        public void ControllerInit(VisualElement t)
-        {
-            base.Init(t);
-
-            joystickBound = target.Q<VisualElement>(ImageJoystickBound);
-            joystickLever = target.Q<VisualElement>(ImageJoystickLever);
-            // _boundRadius = joystickBound.localBound.width / 2.0f;
-            _boundRadius = joystickBound.localBound.width;
-        }
-
-
         #region Properties
 
         private float _boundRadius;
         private VisualElement joystickLever;
         private VisualElement joystickBound;
         private Vector3 _pointerStartPosition;
+        const string ImageJoystickBound = "ImageJoystickBound";
+        const string ImageJoystickLever = "ImageJoystickLever";
 
         #endregion
 
+        public void ControllerInit(VisualElement t)
+        {
+            Init(t);
+
+            joystickBound = target.Q<VisualElement>(ImageJoystickBound);
+            joystickLever = target.Q<VisualElement>(ImageJoystickLever);
+            //todo 핸드폰 사이즈 비례로 할지...
+            _boundRadius = joystickBound.localBound.width / 1.5f;
+            // _boundRadius = joystickBound.localBound.width;
+        }
+
+
         protected override void PointerDownHandler(PointerDownEvent evt)
         {
-            base.PointerDownHandler(evt);
+            if (IsDrag) return;
 
+            base.PointerDownHandler(evt);
             joystickLever.transform.position = Vector2.zero;
             var pos = -(joystickBound.layout.center - (Vector2)evt.position);
             joystickBound.transform.position = pos;
